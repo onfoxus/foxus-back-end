@@ -1,0 +1,15 @@
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\bin\Debug\net5.0\Foxus.Infrastructure.Data.deps.json
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\bin\Debug\net5.0\Foxus.Infrastructure.Data.dll
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\bin\Debug\net5.0\Foxus.Infrastructure.Data.pdb
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\bin\Debug\net5.0\Foxus.Domain.dll
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\bin\Debug\net5.0\Foxus.Domain.pdb
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.csproj.AssemblyReference.cache
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.AssemblyInfoInputs.cache
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.AssemblyInfo.cs
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.csproj.CoreCompileInputs.cache
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.csproj.CopyComplete
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.dll
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\refint\Foxus.Infrastructure.Data.dll
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\Foxus.Infrastructure.Data.pdb
+C:\workspace\foxus-back-end\foxus\src\foxus.Infrastructure.Data\obj\Debug\net5.0\ref\Foxus.Infrastructure.Data.dll
