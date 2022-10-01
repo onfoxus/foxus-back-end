@@ -8,7 +8,7 @@ namespace Foxus.Infrastructure.Data.DataMappings
     {
         public void Configure(EntityTypeBuilder<TarefaPrimaria> builder)
         {
-            builder.ToTable("TAREFAPRIMARIA");
+            builder.ToTable("tbTarefaPrimaria");
 
             builder.Property(p => p.Id)
                 .HasColumnName("ID")
@@ -43,7 +43,9 @@ namespace Foxus.Infrastructure.Data.DataMappings
                 .HasColumnName("DURACAO")
                 .HasColumnType("time");
 
-            builder.HasMany(n => n.TarefasSecundarias);
+            builder.HasMany(n => n.TarefasSecundarias)
+            .WithOne(n => n.TarefaPrimaria)
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

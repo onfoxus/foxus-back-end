@@ -8,7 +8,7 @@ namespace Foxus.Infrastructure.Data.DataMappings
     {
         public void Configure(EntityTypeBuilder<TarefaSecundaria> builder)
         {
-            builder.ToTable("TAREFASECUNDARIA");
+            builder.ToTable("tbTarefaSecundaria");
 
             builder.Property(p => p.Id)
                 .HasColumnName("ID")
@@ -24,6 +24,10 @@ namespace Foxus.Infrastructure.Data.DataMappings
                 .HasColumnName("FINALIZADA")
                 .HasColumnType("bit")
                 .IsRequired();
+
+            builder.HasOne(n => n.TarefaPrimaria)
+                .WithMany(p => p.TarefasSecundarias)
+                .HasForeignKey(k => k.TarefaPrimariaId);
         }
     }
 }

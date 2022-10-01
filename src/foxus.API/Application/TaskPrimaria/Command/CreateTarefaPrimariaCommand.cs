@@ -27,24 +27,18 @@ namespace Foxus.API.Application.TaskPrimaria.Command
         public CreateTarefaPrimariaCommand(string titulo, bool finalizada, List<TarefaSecundaria> tarefasSecundarias, string descricao, int prioridade, DateTime dataCadastro, TimeSpan duracao)
         {
             Titulo = titulo;
-            Finalizada = finalizada;           
+            Finalizada = finalizada;
             Descricao = descricao;
             Prioridade = prioridade;
             DataCadastro = dataCadastro;
             Duracao = duracao;
 
-            foreach(TarefaSecundaria tarefaSecundaria in tarefasSecundarias) 
+            TarefasSecundarias = new List<TarefaSecundaria>();
+            foreach (TarefaSecundaria tarefaSecundaria in tarefasSecundarias)
             {
-                var validatorTarefaSecundaria = new CreateTarefaSecundariaCommandValidator();
-                Validation = validatorTarefaSecundaria.Validate(new TaskSecundaria.Command.CreateTarefaSecundariaCommand(tarefaSecundaria.Titulo, tarefaSecundaria.Finalizada));
-
-                if (Validation.IsValid)
-                {
-                    TarefasSecundarias = new List<TarefaSecundaria>();
-                    TarefasSecundarias.Add(tarefaSecundaria);
-                }                   
+                TarefasSecundarias.Add(tarefaSecundaria);
             }
-            
+
             var validatorTarefaPrimaria = new CreateTarefaPrimariaCommandValidator();
             Validation = validatorTarefaPrimaria.Validate(this);
         }

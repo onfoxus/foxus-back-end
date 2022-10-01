@@ -8,7 +8,7 @@ namespace Foxus.Infrastructure.Data.DataMappings
     {
         public void Configure(EntityTypeBuilder<Execucao> builder)
         {
-            builder.ToTable("EXECUCAO");
+            builder.ToTable("tbExecucao");
 
             builder.Property(p => p.Id)
                 .HasColumnName("ID")

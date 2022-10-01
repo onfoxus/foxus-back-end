@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.API\\Foxus.API.csproj": {}
+    "C:\\workspace\\foxus-back-end\\src\\foxus.API\\Foxus.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.API\\Foxus.API.csproj": {
+    "C:\\workspace\\foxus-back-end\\src\\foxus.API\\Foxus.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.API\\Foxus.API.csproj",
+        "projectUniqueName": "C:\\workspace\\foxus-back-end\\src\\foxus.API\\Foxus.API.csproj",
         "projectName": "Foxus.API",
-        "projectPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.API\\Foxus.API.csproj",
+        "projectPath": "C:\\workspace\\foxus-back-end\\src\\foxus.API\\Foxus.API.csproj",
         "packagesPath": "C:\\Users\\alvsd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.API\\obj\\",
+        "outputPath": "C:\\workspace\\foxus-back-end\\src\\foxus.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alvsd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj": {
-                "projectPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj"
+              "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj": {
+                "projectPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj"
               },
-              "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj": {
-                "projectPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj"
+              "C:\\workspace\\foxus-back-end\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj"
               }
             }
           }
@@ -60,6 +60,14 @@
               "version": "[10.0.1, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[5.0.17, )"
             },
@@ -97,14 +105,14 @@
         }
       }
     },
-    "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj": {
+    "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj",
+        "projectUniqueName": "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj",
         "projectName": "Foxus.Domain",
-        "projectPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj",
+        "projectPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj",
         "packagesPath": "C:\\Users\\alvsd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\obj\\",
+        "outputPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alvsd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,6 +140,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -152,14 +170,14 @@
         }
       }
     },
-    "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj": {
+    "C:\\workspace\\foxus-back-end\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj",
+        "projectUniqueName": "C:\\workspace\\foxus-back-end\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj",
         "projectName": "Foxus.Infrastructure.Data",
-        "projectPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj",
+        "projectPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Infrastructure.Data\\Foxus.Infrastructure.Data.csproj",
         "packagesPath": "C:\\Users\\alvsd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Infrastructure.Data\\obj\\",
+        "outputPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Infrastructure.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alvsd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -176,8 +194,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj": {
-                "projectPath": "C:\\Users\\alvsd\\OneDrive\\Área de Trabalho\\foxus\\src\\foxus.Domain\\Foxus.Domain.csproj"
+              "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj": {
+                "projectPath": "C:\\workspace\\foxus-back-end\\src\\foxus.Domain\\Foxus.Domain.csproj"
               }
             }
           }
@@ -192,6 +210,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.17, )"

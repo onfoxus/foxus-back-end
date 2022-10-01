@@ -2,8 +2,8 @@
 {
     public class Tarefa
     {
-        public int Id { get; set; }
-        public string Titulo { get; set; }
-        public bool Finalizada { get; set; }
+        public virtual int Id { get; set; }
+        public virtual string Titulo { get; set; }
+        public virtual bool Finalizada { get; set; }
     }
 }

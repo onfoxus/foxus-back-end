@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Foxus.Domain;
+using MediatR;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Foxus.API.Application.TaskPrimaria.Query

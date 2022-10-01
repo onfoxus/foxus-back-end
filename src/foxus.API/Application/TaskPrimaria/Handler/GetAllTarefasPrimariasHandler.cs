@@ -19,7 +19,7 @@ namespace Foxus.API.Application.TaskPrimaria.Handler
         public async Task<IEnumerable<Domain.TarefaPrimaria>> Handle(GetAllTarefasPrimariasQuery request, CancellationToken cancellationToken)
         {
             return await _tarefaPrimariaRepository.GetAllAsync(
-                noTracking: true,
+                noTracking: false,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }

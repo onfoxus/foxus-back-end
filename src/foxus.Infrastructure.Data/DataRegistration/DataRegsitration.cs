@@ -1,5 +1,6 @@
 ﻿using Foxus.Infrastructure.Data.Contract;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,7 +13,12 @@ namespace Foxus.Infrastructure.Data.DataRegistration
         {
             services.AddDbContextPool<DbContext, FoxusDbContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("sql_connection"));
+                options.UseLazyLoadingProxies()
+                .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.DetachedLazyLoadingWarning))
+                .UseSqlServer(configuration.GetConnectionString("sql_connection"), sqlServerOptionsAction: sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure();
+                });
             });
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             return services;

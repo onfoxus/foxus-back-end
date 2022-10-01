@@ -5,11 +5,11 @@ namespace Foxus.Domain
 {
     public class Execucao
     {
-        public int Id { get; set; }
-        public List<TarefaPrimaria> TarefasPrimarias { get; set; }
-        public TimeSpan Duracao { get; set; }
-        public PomodoroTimer PomodoroTimer { get; set; }
-        public Usuario Usuario { get; set; }
-        public int UsuarioId { get; set; }
+        public virtual int Id { get; set; }
+        public virtual List<TarefaPrimaria> TarefasPrimarias { get; set; }
+        public virtual TimeSpan Duracao { get; set; }
+        public virtual PomodoroTimer PomodoroTimer { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual int UsuarioId { get; set; }
     }
 }
