@@ -8,7 +8,7 @@ namespace Foxus.Infrastructure.Data.DataMappings
     {
         public void Configure(EntityTypeBuilder<PomodoroTimer> builder)
         {
-            builder.ToTable("POMODOROTIMER");
+            builder.ToTable("tbPomodoroTimer");
 
             builder.Property(p => p.Id)
                 .HasColumnName("ID")

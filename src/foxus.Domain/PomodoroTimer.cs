@@ -4,8 +4,8 @@ namespace Foxus.Domain
 {
     public class PomodoroTimer
     {
-        public int Id { get; set; }
-        public TimeSpan TempoFoco { get; set; }
-        public TimeSpan TempoDescanso { get; set; }
+        public virtual int Id { get; set; }
+        public virtual TimeSpan TempoFoco { get; set; }
+        public virtual TimeSpan TempoDescanso { get; set; }
     }
 }
