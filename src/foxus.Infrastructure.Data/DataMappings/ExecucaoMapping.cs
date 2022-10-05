@@ -14,8 +14,6 @@ namespace Foxus.Infrastructure.Data.DataMappings
                 .HasColumnName("ID")
                 .UseIdentityColumn();
 
-            builder.HasMany(n => n.TarefasPrimarias);
-
             builder.Property(n => n.Duracao)
                 .HasColumnName("DURACAO")
                 .HasColumnType("time")
@@ -26,6 +24,9 @@ namespace Foxus.Infrastructure.Data.DataMappings
                 .HasForeignKey(k => k.UsuarioId);
 
             builder.HasOne(n => n.PomodoroTimer);
+
+            builder.HasMany(n => n.TarefasPrimarias)
+                .WithMany(p => p.Execucoes);
         }
     }
 }

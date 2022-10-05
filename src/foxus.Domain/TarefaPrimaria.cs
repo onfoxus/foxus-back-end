@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Foxus.Domain
 {
@@ -11,5 +10,6 @@ namespace Foxus.Domain
         public virtual int Prioridade { get; set; }
         public virtual TimeSpan Duracao { get; set; }
         public virtual List<TarefaSecundaria> TarefasSecundarias { get; set; }
+        public virtual List<Execucao> Execucoes { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Foxus.API.Application.TaskPrimaria.Command
 {
@@ -16,6 +15,7 @@ namespace Foxus.API.Application.TaskPrimaria.Command
         public int Prioridade { get; set; }
         public DateTime DataCadastro { get; set; }
         public TimeSpan Duracao { get; set; }
+        public List<Domain.Execucao> Execucoes { get; set; }
 
     }
 }
