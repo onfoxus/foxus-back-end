@@ -25,6 +25,7 @@ namespace Foxus.API.Application.TaskPrimaria.Handler
             tarefaPrimaria.Prioridade = request.Prioridade;
             tarefaPrimaria.DataCadastro = request.DataCadastro;
             tarefaPrimaria.Duracao = request.Duracao;
+            tarefaPrimaria.Execucoes = request.Execucoes;
 
             _tarefaPrimariaRepository.Update(tarefaPrimaria);
 

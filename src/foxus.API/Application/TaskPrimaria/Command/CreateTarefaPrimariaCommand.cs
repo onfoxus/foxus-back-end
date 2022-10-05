@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using Foxus.Domain;
 using JsonIgnoreAttribute = System.Text.Json.Serialization.JsonIgnoreAttribute;
-using FluentValidation;
-using Foxus.API.Application.TaskSecundaria.Validation;
 
 namespace Foxus.API.Application.TaskPrimaria.Command
 {

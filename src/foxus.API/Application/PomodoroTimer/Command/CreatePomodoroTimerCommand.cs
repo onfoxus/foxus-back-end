@@ -1,10 +1,7 @@
 ﻿using MediatR;
 using System;
-using Newtonsoft.Json;
 using FluentValidation.Results;
 using Foxus.API.Application.PomodoroTimer.Validation;
-using System.Diagnostics;
-using System.Text.Json.Serialization;
 using JsonIgnoreAttribute = System.Text.Json.Serialization.JsonIgnoreAttribute;
 
 namespace Foxus.API.Application.PomodoroTimer.Command
