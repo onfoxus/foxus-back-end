@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using Foxus.API.Application.Usuario.Validation;
+using Foxus.API.Helper;
 using MediatR;
 using JsonIgnoreAttribute = System.Text.Json.Serialization.JsonIgnoreAttribute;
 

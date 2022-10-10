@@ -18,6 +18,9 @@ namespace Foxus.API.Application.TaskSecundaria.Handler
         {
             var tarefaSecundaria = await _tarefaSecundariaRepository.GetByKeysAsync(cancellationToken, request.Id).ConfigureAwait(false);
 
+            if(tarefaSecundaria == null)
+                return false;
+
             tarefaSecundaria.Titulo = request.Titulo;
             tarefaSecundaria.Finalizada = request.Finalizada;
 

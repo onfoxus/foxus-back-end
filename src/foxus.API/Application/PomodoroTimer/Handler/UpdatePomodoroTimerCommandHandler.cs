@@ -18,6 +18,9 @@ namespace Foxus.API.Application.PomodoroTimer.Handler
         {
             var pomodoroTimer = await _pomodoroTimerRepository.GetByKeysAsync(cancellationToken, request.Id).ConfigureAwait(false);
 
+            if (pomodoroTimer == null)
+                return false;
+
             pomodoroTimer.TempoFoco = request.TempoFoco;
             pomodoroTimer.TempoDescanso = request.TempoDescanso;
 

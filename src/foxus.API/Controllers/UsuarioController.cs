@@ -30,6 +30,17 @@ namespace Foxus.API.Controllers
             return usuarios.Any() ? Ok(usuarios) : NoContent();
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
+        {
+            var usuario = await _mediator.Send(new GetUsuarioQuery(id), cancellation).ConfigureAwait(false);
+
+            return !usuario.Equals(null) ? Ok(usuario) : NoContent();
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateAsync(CreateUsuarioCommand createUsuarioCommand, CancellationToken cancellationToken)

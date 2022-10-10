@@ -30,6 +30,17 @@ namespace Foxus.API.Controllers
             return pomodoroTimers.Any() ? Ok(pomodoroTimers) : NoContent();
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
+        {
+            var pomodoroTimer = await _mediator.Send(new GetPomodoroTimerQuery(id), cancellation).ConfigureAwait(false);
+
+            return !pomodoroTimer.Equals(null) ? Ok(pomodoroTimer) : NoContent();
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateAsync(CreatePomodoroTimerCommand createPomodoroTimerCommand, CancellationToken cancellationToken)

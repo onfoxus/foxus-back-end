@@ -1,4 +1,5 @@
 ﻿using Foxus.API.Application.Usuario.Command;
+using Foxus.API.Helper;
 using Foxus.Infrastructure.Data.Contract;
 using MediatR;
 using System.Threading;
@@ -18,8 +19,11 @@ namespace Foxus.API.Application.Usuario.Handler
         {
             var usuario = await _usuarioRepository.GetByKeysAsync(cancellationToken, request.Id).ConfigureAwait(false);
 
+            if (usuario == null)
+                return false;
+
             usuario.Login = request.Login;
-            usuario.Senha = request.Senha;
+            usuario.Senha = request.Senha.GerarHash();
             usuario.Nome = request.Nome;
 
             _usuarioRepository.Update(usuario);

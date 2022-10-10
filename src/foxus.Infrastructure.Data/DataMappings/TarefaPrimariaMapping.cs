@@ -1,6 +1,7 @@
 ﻿using Foxus.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Collections.Generic;
 
 namespace Foxus.Infrastructure.Data.DataMappings
 {
@@ -46,6 +47,9 @@ namespace Foxus.Infrastructure.Data.DataMappings
             builder.HasMany(n => n.TarefasSecundarias)
             .WithOne(n => n.TarefaPrimaria)
             .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(n => n.Execucoes)
+                .WithMany(p => p.TarefasPrimarias);
         }
     }
 }

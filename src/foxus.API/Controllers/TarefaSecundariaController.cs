@@ -1,5 +1,4 @@
-﻿using Foxus.API.Application.TaskPrimaria.Command;
-using Foxus.API.Application.TaskSecundaria.Command;
+﻿using Foxus.API.Application.TaskSecundaria.Command;
 using Foxus.API.Application.TaskSecundaria.Query;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +28,17 @@ namespace Foxus.API.Controllers
             var tarefasSecundarias = await _mediator.Send(new GetAllTarefasSecundariasQuery(), cancellation).ConfigureAwait(false);
 
             return tarefasSecundarias.Any() ? Ok(tarefasSecundarias) : NoContent();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
+        {
+            var tarefaSecundaria = await _mediator.Send(new GetTarefaSecundariaQuery(id), cancellation).ConfigureAwait(false);
+
+            return !tarefaSecundaria.Equals(null) ? Ok(tarefaSecundaria) : NoContent();
         }
 
         [HttpPut]

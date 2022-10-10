@@ -1,4 +1,5 @@
 ﻿using Foxus.API.Application.TaskSecundaria.Command;
+using Foxus.Domain;
 using Foxus.Infrastructure.Data.Contract;
 using MediatR;
 using System.Threading;
@@ -16,6 +17,14 @@ namespace Foxus.API.Application.TaskSecundaria.Handler
 
         public async Task<bool> Handle(CreateTarefaSecundariaCommand request, CancellationToken cancellationToken)
         {
+            var tarefasSecundarias = await _tarefaSecundariaRepository.GetAllAsync(noTracking: true, cancellationToken: cancellationToken).ConfigureAwait(false);
+
+            foreach (var tarefa in tarefasSecundarias)
+            {
+                if (tarefa.Titulo == request.Titulo)
+                    return false;
+            }
+
             if (!request.Validation.IsValid)
                 return false;
 
