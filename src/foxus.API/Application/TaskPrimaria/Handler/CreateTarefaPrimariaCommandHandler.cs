@@ -1,4 +1,5 @@
 ﻿using Foxus.API.Application.TaskPrimaria.Command;
+using Foxus.Domain;
 using Foxus.Infrastructure.Data.Contract;
 using MediatR;
 using System.Threading;
@@ -16,6 +17,14 @@ namespace Foxus.API.Application.TaskPrimaria.Handler
 
         public async Task<bool> Handle(CreateTarefaPrimariaCommand request, CancellationToken cancellationToken)
         {
+            var tarefasPrimarias = await _tarefaPrimariaRepository.GetAllAsync(noTracking: true, cancellationToken: cancellationToken).ConfigureAwait(false);
+
+            foreach (var tarefa in tarefasPrimarias)
+            {
+                if (tarefa.Titulo == request.Titulo)
+                    return false;
+            }
+
             if (!request.Validation.IsValid)
                 return false;
 

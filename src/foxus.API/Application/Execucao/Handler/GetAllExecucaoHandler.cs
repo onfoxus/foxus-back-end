@@ -20,7 +20,7 @@ namespace Foxus.API.Application.Execucao.Handler
         public async Task<IEnumerable<Domain.Execucao>> Handle(GetAllExecucoesQuery request, CancellationToken cancellationToken)
         {
             return await _execucaoRepository.GetAllAsync(
-                noTracking: false,
+                noTracking: true,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }

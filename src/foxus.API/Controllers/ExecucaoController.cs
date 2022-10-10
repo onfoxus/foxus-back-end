@@ -29,6 +29,17 @@ namespace Foxus.API.Controllers
             return execucoes.Any() ? Ok(execucoes) : NoContent();
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
+        {
+            var execucao = await _mediator.Send(new GetExecucaoQuery(id), cancellation).ConfigureAwait(false);
+
+            return !execucao.Equals(null) ? Ok(execucao) : NoContent();
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateAsync(CreateExecucaoCommand createExecucaoCommand, CancellationToken cancellationToken)

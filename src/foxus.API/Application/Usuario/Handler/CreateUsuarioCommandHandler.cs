@@ -1,4 +1,5 @@
 ﻿using Foxus.API.Application.Usuario.Command;
+using Foxus.API.Helper;
 using Foxus.Infrastructure.Data.Contract;
 using MediatR;
 using System.Threading;
@@ -16,13 +17,21 @@ namespace Foxus.API.Application.Usuario.Handler
 
         public async Task<bool> Handle(CreateUsuarioCommand request, CancellationToken cancellationToken)
         {
+            var usuarios = await _usuarioRepository.GetAllAsync(noTracking: true, cancellationToken: cancellationToken).ConfigureAwait(false);
+
             if (!request.Validation.IsValid)
                 return false;
+
+            foreach(var user in usuarios)
+            {
+                if (user.Login == request.Login)
+                    return false;
+            }            
 
             var usuario = new Domain.Usuario
             {
                 Login = request.Login,
-                Senha = request.Senha,
+                Senha = request.Senha.GerarHash(),
                 Nome = request.Nome
             };
 

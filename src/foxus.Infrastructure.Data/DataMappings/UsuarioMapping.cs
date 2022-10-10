@@ -23,7 +23,7 @@ namespace Foxus.Infrastructure.Data.DataMappings
             builder.Property(p => p.Senha)
                 .HasColumnName("SENHA")
                 .HasColumnType("varchar")
-                .HasMaxLength(8)
+                .HasMaxLength(40)
                 .IsRequired();
 
             builder.Property(p => p.Nome)

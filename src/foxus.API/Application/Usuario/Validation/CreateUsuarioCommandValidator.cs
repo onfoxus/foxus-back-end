@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Foxus.API.Application.Usuario.Command;
+using Foxus.Infrastructure.Data;
 
 namespace Foxus.API.Application.Usuario.Validation
 {
@@ -8,6 +9,7 @@ namespace Foxus.API.Application.Usuario.Validation
         public CreateUsuarioCommandValidator()
         {
             RuleFor(x => x.Login)
+                
                 .NotNull()
                 .NotEmpty()
                 .MaximumLength(30);
@@ -15,7 +17,7 @@ namespace Foxus.API.Application.Usuario.Validation
             RuleFor(x => x.Senha)
                 .NotNull()
                 .NotEmpty()
-                .MaximumLength(8);
+                .MaximumLength(40);
 
             RuleFor(x => x.Nome)
                 .NotNull()

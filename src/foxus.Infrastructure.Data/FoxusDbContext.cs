@@ -10,8 +10,9 @@ namespace Foxus.Infrastructure.Data
         public FoxusDbContext(DbContextOptions options) : base(options)
         {
             this.ChangeTracker.LazyLoadingEnabled = true;
-            this.TarefasPrimarias
-                .Include(tarefaPrimaria => tarefaPrimaria.TarefasSecundarias);
+
+            this.TarefasPrimarias.Include(tarefaPrimaria => tarefaPrimaria.TarefasSecundarias);
+            this.Usuarios.Include(usuario => usuario.Execucoes);
         }
         DbSet<Usuario> Usuarios { get; set; }
         DbSet<TarefaPrimaria> TarefasPrimarias { get; set; }

@@ -32,17 +32,30 @@ namespace Foxus.API.Application.Execucao.Handler
         {
             var execucao = await _execucaoRepository.GetByKeysAsync(cancellationToken, request.Id).ConfigureAwait(false);
 
+            if (execucao == null)
+                return false;
+
             var listaTarefasPrimarias = new List<TarefaPrimaria>();
 
             foreach (TarefaPrimaria tarefaPrimaria in request.TarefasPrimarias)
             {
                 var tarefa = await _tarefaPrimariaRepository.GetByKeysAsync(cancellationToken, tarefaPrimaria.Id).ConfigureAwait(false);
+                
+                if (tarefa == null)
+                    return false;
 
                 listaTarefasPrimarias.Add(tarefa);
             }
 
             var pomodoroTimer = await _pomodoroTimerRepository.GetByKeysAsync(cancellationToken, request.PomodoroTimer.Id).ConfigureAwait(false);
+
+            if (pomodoroTimer == null)
+                return false;
+
             var usuario = await _usuarioRepository.GetByKeysAsync(cancellationToken, request.Usuario.Id).ConfigureAwait(false);
+
+            if (usuario == null)
+                return false;
 
             execucao.TarefasPrimarias = listaTarefasPrimarias;
             execucao.Duracao = request.Duracao;

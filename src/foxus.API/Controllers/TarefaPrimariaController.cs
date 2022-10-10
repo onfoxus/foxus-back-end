@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Data;
 
 namespace Foxus.API.Controllers
 {
@@ -29,6 +28,17 @@ namespace Foxus.API.Controllers
             var tarefasPrimarias = await _mediator.Send(new GetAllTarefasPrimariasQuery(), cancellation).ConfigureAwait(false);
 
             return tarefasPrimarias.Any() ? Ok(tarefasPrimarias) : NoContent();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
+        {
+            var tarefaPrimaria = await _mediator.Send(new GetTarefaPrimariaQuery(id), cancellation).ConfigureAwait(false);
+
+            return !tarefaPrimaria.Equals(null) ? Ok(tarefaPrimaria) : NoContent();
         }
 
         [HttpPost]
