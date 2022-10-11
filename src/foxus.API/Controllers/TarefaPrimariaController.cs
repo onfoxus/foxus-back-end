@@ -38,7 +38,7 @@ namespace Foxus.API.Controllers
         {
             var tarefaPrimaria = await _mediator.Send(new GetTarefaPrimariaQuery(id), cancellation).ConfigureAwait(false);
 
-            return !tarefaPrimaria.Equals(null) ? Ok(tarefaPrimaria) : NoContent();
+            return tarefaPrimaria != null ? Ok(tarefaPrimaria) : NoContent();
         }
 
         [HttpPost]

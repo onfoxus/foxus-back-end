@@ -37,7 +37,7 @@ namespace Foxus.API.Controllers
         {
             var execucao = await _mediator.Send(new GetExecucaoQuery(id), cancellation).ConfigureAwait(false);
 
-            return !execucao.Equals(null) ? Ok(execucao) : NoContent();
+            return execucao != null ? Ok(execucao) : NoContent();
         }
 
         [HttpPost]
