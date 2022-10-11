@@ -38,7 +38,7 @@ namespace Foxus.API.Controllers
         {
             var usuario = await _mediator.Send(new GetUsuarioQuery(id), cancellation).ConfigureAwait(false);
 
-            return !usuario.Equals(null) ? Ok(usuario) : NoContent();
+            return usuario == null ? Ok(usuario) : NoContent();
         }
 
         [HttpPost]

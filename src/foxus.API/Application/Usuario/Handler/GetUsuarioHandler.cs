@@ -1,4 +1,5 @@
-﻿using Foxus.API.Application.Usuario.Query;
+﻿using Foxus.API.Application.Login.Query;
+using Foxus.API.Application.Usuario.Query;
 using Foxus.Infrastructure.Data.Contract;
 using MediatR;
 using System.Threading;

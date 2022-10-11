@@ -38,7 +38,7 @@ namespace Foxus.API.Controllers
         {
             var pomodoroTimer = await _mediator.Send(new GetPomodoroTimerQuery(id), cancellation).ConfigureAwait(false);
 
-            return !pomodoroTimer.Equals(null) ? Ok(pomodoroTimer) : NoContent();
+            return pomodoroTimer != null ? Ok(pomodoroTimer) : NoContent();
         }
 
         [HttpPost]
