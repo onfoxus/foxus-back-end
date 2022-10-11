@@ -1,0 +1,14 @@
+addReviewers: true
+addAssignees: author
+reviewers:
+  - calexs
+  - danilloalvs
+
+numberOfReviewers: 1
+assignees:
+  - calexs
+  - danilloalvs
+
+numberOfAssignees: 0
+skipKeywords:
+  - wip
