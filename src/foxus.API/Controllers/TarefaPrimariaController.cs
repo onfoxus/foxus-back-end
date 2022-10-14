@@ -1,6 +1,7 @@
 ﻿using Foxus.API.Application.TaskPrimaria.Command;
 using Foxus.API.Application.TaskPrimaria.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Foxus.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> GetAllAsync(CancellationToken cancellation)
         {
             var tarefasPrimarias = await _mediator.Send(new GetAllTarefasPrimariasQuery(), cancellation).ConfigureAwait(false);
@@ -34,6 +36,7 @@ namespace Foxus.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
         {
             var tarefaPrimaria = await _mediator.Send(new GetTarefaPrimariaQuery(id), cancellation).ConfigureAwait(false);
@@ -43,6 +46,7 @@ namespace Foxus.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> CreateAsync(CreateTarefaPrimariaCommand createTarefaPrimariaCommand, CancellationToken cancellationToken)
         {
             if (!createTarefaPrimariaCommand.Validation.IsValid)
@@ -55,6 +59,7 @@ namespace Foxus.API.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> UpdateAsync(UpdateTarefaPrimariaCommand updateTarefaPrimariaCommand,
             CancellationToken cancellationToken)
         {
@@ -66,6 +71,7 @@ namespace Foxus.API.Controllers
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> DeleteAsync(DeleteTarefaPrimariaCommand deleteTarefaPrimariaCommand,
             CancellationToken cancellationToken)
         {

@@ -6,6 +6,7 @@ using System.Threading;
 using Foxus.API.Application.PomodoroTimer.Command;
 using Foxus.API.Application.PomodoroTimer.Query;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Foxus.API.Controllers
 {
@@ -23,6 +24,7 @@ namespace Foxus.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> GetAllAsync(CancellationToken cancellation)
         {
             var pomodoroTimers = await _mediator.Send(new GetAllPomodoroTimersQuery(), cancellation).ConfigureAwait(false);
@@ -34,6 +36,7 @@ namespace Foxus.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
         {
             var pomodoroTimer = await _mediator.Send(new GetPomodoroTimerQuery(id), cancellation).ConfigureAwait(false);
@@ -43,6 +46,7 @@ namespace Foxus.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> CreateAsync(CreatePomodoroTimerCommand createPomodoroTimerCommand, CancellationToken cancellationToken)
         {
             if (!createPomodoroTimerCommand.Validation.IsValid)
@@ -55,6 +59,7 @@ namespace Foxus.API.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> UpdateAsync(UpdatePomodoroTimerCommand updatePomodoroTimerCommand,
             CancellationToken cancellationToken)
         {
@@ -66,6 +71,7 @@ namespace Foxus.API.Controllers
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> DeleteAsync(DeletePomodoroTimerCommand deletePomodoroTimerCommand,
             CancellationToken cancellationToken)
         {

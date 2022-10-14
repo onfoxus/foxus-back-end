@@ -6,6 +6,7 @@ using System.Threading;
 using Foxus.API.Application.Execucao.Command;
 using Foxus.API.Application.Execucao.Query;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Foxus.API.Controllers
 {
@@ -22,6 +23,7 @@ namespace Foxus.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> GetAllAsync(CancellationToken cancellation)
         {
             var execucoes = await _mediator.Send(new GetAllExecucoesQuery(), cancellation).ConfigureAwait(false);
@@ -33,6 +35,7 @@ namespace Foxus.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
         {
             var execucao = await _mediator.Send(new GetExecucaoQuery(id), cancellation).ConfigureAwait(false);
@@ -42,6 +45,7 @@ namespace Foxus.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> CreateAsync(CreateExecucaoCommand createExecucaoCommand, CancellationToken cancellationToken)
         {
             if (!createExecucaoCommand.Validation.IsValid)
@@ -54,6 +58,7 @@ namespace Foxus.API.Controllers
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> DeleteAsync(DeleteExecucaoCommand deleteExecucaoCommand,
             CancellationToken cancellationToken)
         {

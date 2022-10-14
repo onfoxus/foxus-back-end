@@ -2,6 +2,7 @@
 using Foxus.API.Helper;
 using Foxus.Infrastructure.Data.Contract;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,18 +21,16 @@ namespace Foxus.API.Application.Login.Handler
         {
             var usuarios = await _usuarioRepository.GetAllAsync(noTracking: true, cancellationToken: cancellationToken).ConfigureAwait(false);
 
-            foreach (var user in usuarios)
+            var usuarioValido = usuarios.FirstOrDefault(usuario => usuario.Login == request.LoginUsuario && usuario.Senha == request.Senha.GerarHash());
+
+            if (usuarioValido == null)
+                return null;
+
+            return new Domain.Login()
             {
-                if (user.Login == request.LoginUsuario && user.Senha == request.Senha.GerarHash())
-                {
-                    return new Domain.Login()
-                    {
-                        LoginUsuario = user.Login,
-                        Senha = user.Senha
-                    };
-                }
-            }
-            return null;
+                LoginUsuario = usuarioValido.Login,
+                Senha = string.Empty
+            };
         }
     }
 }

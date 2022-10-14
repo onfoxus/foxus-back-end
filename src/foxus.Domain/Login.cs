@@ -10,5 +10,6 @@ namespace Foxus.Domain
     {
         public virtual string LoginUsuario { get; set; }
         public virtual string Senha { get; set; }
+        public virtual string Token { get; set; }
     }
 }

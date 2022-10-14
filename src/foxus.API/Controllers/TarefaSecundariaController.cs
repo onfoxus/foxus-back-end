@@ -1,6 +1,7 @@
 ﻿using Foxus.API.Application.TaskSecundaria.Command;
 using Foxus.API.Application.TaskSecundaria.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Foxus.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> GetAllAsync(CancellationToken cancellation)
         {
             var tarefasSecundarias = await _mediator.Send(new GetAllTarefasSecundariasQuery(), cancellation).ConfigureAwait(false);
@@ -34,6 +36,7 @@ namespace Foxus.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetAsync(int id, CancellationToken cancellation)
         {
             var tarefaSecundaria = await _mediator.Send(new GetTarefaSecundariaQuery(id), cancellation).ConfigureAwait(false);
@@ -43,6 +46,7 @@ namespace Foxus.API.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> UpdateAsync(UpdateTarefaSecundariaCommand updateTarefaSecundariaCommand,
             CancellationToken cancellationToken)
         {
@@ -54,6 +58,7 @@ namespace Foxus.API.Controllers
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> DeleteAsync(DeleteTarefaSecundariaCommand deleteTarefaSecundariaCommand,
             CancellationToken cancellationToken)
         {
