@@ -1,12 +1,17 @@
+using Foxus.API.Helper;
 using Foxus.Infrastructure.Data.DataRegistration;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using System.Text;
 
 namespace Foxus.API
 {
@@ -23,6 +28,7 @@ namespace Foxus.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
             services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddMediatR(Assembly.GetExecutingAssembly());
@@ -41,6 +47,22 @@ namespace Foxus.API
                     "<br>Guilherme Brito - RA 0811900",
                 });
             });
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,9 +76,9 @@ namespace Foxus.API
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

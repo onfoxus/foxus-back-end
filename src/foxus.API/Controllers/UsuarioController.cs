@@ -1,6 +1,7 @@
 ﻿using Foxus.API.Application.Usuario.Command;
 using Foxus.API.Application.Usuario.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
