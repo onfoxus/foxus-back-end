@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Foxus.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/")]
+    [Route("api/v2/")]
     public class LoginController : ControllerBase
     {
         private readonly IMediator _mediator;

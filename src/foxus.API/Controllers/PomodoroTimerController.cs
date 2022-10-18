@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Foxus.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/pomodorotimer")]
+    [Route("api/v2/pomodorotimer")]
     public class PomodoroTimerController : ControllerBase
     {
         private readonly IMediator _mediator;
