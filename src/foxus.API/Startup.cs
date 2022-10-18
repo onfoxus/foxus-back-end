@@ -39,7 +39,7 @@ namespace Foxus.API
                 {
                     Title = "foXus API",
                     Version = "v1",
-                    Description = "API da aplicação foXus, desenvolvida durante o 8 semestre do curso de Engenharia da Computação pela Faculdade Engenheiro Salvador Arena" +
+                    Description = "API da aplicaï¿½ï¿½o foXus, desenvolvida durante o 8 semestre do curso de Engenharia da Computaï¿½ï¿½o pela Faculdade Engenheiro Salvador Arena" +
                     "<br><br><b>Integrantes do grupo:</b> " +
                     "<br><br>Carlos Alexandre - RA 081190017" +
                     "<br>Danillo Alves Rodrigues - RA 081190036" +
@@ -68,13 +68,9 @@ namespace Foxus.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foxus.API v1"));
-            }
-
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foxus.API v1"));    
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
