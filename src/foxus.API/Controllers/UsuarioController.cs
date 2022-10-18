@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Foxus.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/usuario")]
+    [Route("api/v2/usuario")]
     public class UsuarioController : ControllerBase
     {
         private readonly IMediator _mediator;

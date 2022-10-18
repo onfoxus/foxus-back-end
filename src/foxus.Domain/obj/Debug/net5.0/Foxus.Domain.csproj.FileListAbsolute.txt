@@ -10,3 +10,15 @@ C:\workspace\foxus-back-end\foxus\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain
 C:\workspace\foxus-back-end\foxus\src\foxus.Domain\obj\Debug\net5.0\refint\Foxus.Domain.dll
 C:\workspace\foxus-back-end\foxus\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.pdb
 C:\workspace\foxus-back-end\foxus\src\foxus.Domain\obj\Debug\net5.0\ref\Foxus.Domain.dll
+C:\workspace\foxus-back-end\src\foxus.Domain\bin\Debug\net5.0\Foxus.Domain.deps.json
+C:\workspace\foxus-back-end\src\foxus.Domain\bin\Debug\net5.0\Foxus.Domain.dll
+C:\workspace\foxus-back-end\src\foxus.Domain\bin\Debug\net5.0\Foxus.Domain.pdb
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.csproj.AssemblyReference.cache
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.AssemblyInfoInputs.cache
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.AssemblyInfo.cs
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.csproj.CoreCompileInputs.cache
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.dll
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\refint\Foxus.Domain.dll
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\Foxus.Domain.pdb
+C:\workspace\foxus-back-end\src\foxus.Domain\obj\Debug\net5.0\ref\Foxus.Domain.dll

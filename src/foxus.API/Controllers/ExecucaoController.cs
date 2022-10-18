@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Foxus.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/execucao")]
+    [Route("api/v2/execucao")]
     public class ExecucaoController : ControllerBase
     {
         private readonly IMediator _mediator;

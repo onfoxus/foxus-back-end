@@ -38,8 +38,8 @@ namespace Foxus.API
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "foXus API",
-                    Version = "v1",
-                    Description = "API da aplica��o foXus, desenvolvida durante o 8 semestre do curso de Engenharia da Computa��o pela Faculdade Engenheiro Salvador Arena" +
+                    Version = "v2",
+                    Description = "API of the foXus application, developed during the 8th semester of the Computer Engineering course at Faculdade Engenheiro Salvador Arena" +
                     "<br><br><b>Integrantes do grupo:</b> " +
                     "<br><br>Carlos Alexandre - RA 081190017" +
                     "<br>Danillo Alves Rodrigues - RA 081190036" +
