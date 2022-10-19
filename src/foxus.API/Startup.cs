@@ -32,6 +32,7 @@ namespace Foxus.API
 
             services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped(typeof(IGenericRepository), typeof(GenericRepository));
             services.AddDataRegistration(_configuration);
             services.AddSwaggerGen(c =>
             {
