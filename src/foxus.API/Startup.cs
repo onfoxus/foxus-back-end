@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System;
 using System.Reflection;
 using System.Text;
 
@@ -31,8 +32,8 @@ namespace Foxus.API
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
             services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddScoped(typeof(IGenericRepository), typeof(GenericRepository));
+            //services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddDataRegistration(_configuration);
             services.AddSwaggerGen(c =>
             {
