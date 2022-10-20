@@ -37,7 +37,7 @@ namespace Foxus.API
             services.AddDataRegistration(_configuration);
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                c.SwaggerDoc("v2", new OpenApiInfo
                 {
                     Title = "foXus API",
                     Version = "v2",
@@ -72,7 +72,7 @@ namespace Foxus.API
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foxus.API v1"));    
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v2/swagger.json", "Foxus.API v2"));
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
